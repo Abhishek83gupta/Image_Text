@@ -13,7 +13,8 @@ const AiwithText = () => {
         setLoading(true);
         setResponse('');
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-        const prompt = `random meals related to ${search} category with images and prices`;
+        // const prompt = `random meals related to ${search} category with images and prices`;
+        const prompt = `${search}`;
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
@@ -33,7 +34,7 @@ const AiwithText = () => {
         <div className="p-6 bg-gray-100 min-h-screen flex flex-col items-center">
             <div className="flex flex-col md:flex-row items-center">
                 <input
-                    placeholder="Search Food with Category using Generative AI"
+                    placeholder="Search using Generative AI"
                     onChange={handleChangeSearch}
                     className="border rounded-lg p-2 bg-white shadow-md w-full md:w-auto"
                 />
